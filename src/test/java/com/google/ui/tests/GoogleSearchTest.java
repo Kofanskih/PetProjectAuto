@@ -14,6 +14,7 @@ public class GoogleSearchTest {
 
 
     @BeforeClass
+
     void preConditions(){
         Configuration.browserSize = "1980x1080";
         Configuration.browser = "chrome";

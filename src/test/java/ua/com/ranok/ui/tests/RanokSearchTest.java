@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class RanokSearchTest {
     public final String RANOK_MAIN_PAGE = "https://www.ranok.com.ua/";
+    public final String SEARCH_REQUEST = "Буквар";
 
     @BeforeClass
     void preConditions() {
@@ -28,12 +29,14 @@ public class RanokSearchTest {
     void userRanokSearch() throws InterruptedException {
         open(RANOK_MAIN_PAGE);
         Thread.sleep(5000);
-        System.out.println("Sleep1");
-        $("[name=\"q\"]").setValue("Буквар");
+        System.out.println("Page opened");
+        $("[name=\"q\"]").setValue(SEARCH_REQUEST);
+        //$("[name=\"field-keywords\"]").setValue("Keyboards");
         $("[data-button=\"search-find\"]").click();
+        //$("[name=\"site-search\"]").click();
         System.out.println("Search was complete");
         Thread.sleep(5000);
-        System.out.println("Sleep2");
+        System.out.println("Sleep 2");
     }
 
     @AfterClass
