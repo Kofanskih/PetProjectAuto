@@ -52,26 +52,26 @@ public class RanokLoginTest {
         //$("[class*=\"popup popup-login\"] button").sendKeys(Keys.ENTER);
         String error = $("[class=\"form-block error\"] #loginEmail").parent().$("[class=\"error\"]").getText();
         System.out.println(error);
-        Assert.assertEquals(error, "Невірний E-mail а / або пароль");
+        Assert.assertEquals(error, "Невірний E-mail та / або пароль");
     }
     @Test
     void checkErrorMessageLogin_V2() throws InterruptedException, AWTException {
         open(RANOK_MAIN_PAGE);
-        Thread.sleep(500);
         System.out.println("Page opened");
         $("[data-for=\"popup-login\"]").click();
         System.out.println("Pop-up opened");
-        Thread.sleep(500);
         $("[id=\"loginEmail\"]").setValue(USER_EMAIL);
         $("[id=\"loginPass\"]").setValue(USER_PASSWORD);// $("[class=\"form-block error\"] #loginEmail").parent().$("[class=\"error\"]").shouldHave(Condition.visible); shouldHave(Condition.exist);
         $("[class*=\"popup popup-login\"] button").click();
+        System.out.println("Login click");
         //$("[class*=\"popup popup-login\"] button").sendKeys(Keys.ENTER);
-        $("[class=\"form-block error\"] #loginEmail").parent().$("[class=\"error\"]").shouldHave(Condition.exactText("Невірний E-mail та / або пароль"));
-        $("[class=\"form-block error\"] #loginEmail").parent().$("[class=\"error\"]").shouldHave(Condition.cssValue("color", "rgba(221, 0, 0, 1)"));
+        $("[class*=\"form-block error\"] #loginEmail").parent().$("[class=\"error\"]").shouldHave(Condition.exactText("Невірний E-mail та / або пароль"));
+        $("[class*=\"form-block error\"] #loginEmail").parent().$("[class=\"error\"]").shouldHave(Condition.cssValue("color", "rgba(221, 0, 0, 1)"));
         //$("[class=\"form-block error\"] #loginEmail").parent().$("[class=\"error\"]").shouldHave(Condition.exist);
         //$("[class=\"form-block error\"] #loginEmail").parent().$("[class=\"error\"]").shouldHave(Condition.visible);
         //Selenide.webdriver().driver();
         //WebDriverRunner.getWebDriver().findElement(By.cssSelector()).
+
 
     }
 
